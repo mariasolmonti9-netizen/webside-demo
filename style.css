@@ -1,0 +1,949 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ==========================================================================
+   1. REGLAS GENERALES Y RESET (Aplica a todas las páginas)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #eef7f8;
+    color: #163a4d;
+}
+
+/* ==========================================================================
+   2. MENÚ DE NAVEGACIÓN FIJO (Corregido para que no se deforme)
+   ========================================================================== */
+nav {
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(8, 55, 75, 0.9);
+    backdrop-filter: blur(8px);
+    padding: 15px 35px;
+    border-radius: 60px;
+    z-index: 1000;
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.25);
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    list-style: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+    white-space: nowrap; /* Evita que "El Tren" se rompa en dos líneas */
+}
+
+nav a:hover {
+    color: #7fffd4;
+    transform: scale(1.05);
+}
+
+/* ==========================================================================
+   3. PÁGINA PRINCIPAL: PORTADA (HERO), BENEFICIOS Y CONTACTO
+   ========================================================================== */
+
+/* Portada con Video */
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.video-fondo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        rgba(0, 60, 90, 0.55),
+        rgba(0, 120, 90, 0.45)
+    );
+}
+
+.contenido-hero {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.contenido-hero h1 {
+    color: white;
+    font-size: 85px;
+    font-weight: 800;
+    line-height: 1.1;
+    text-shadow: 0px 5px 15px rgba(0,0,0,0.4);
+    letter-spacing: 2px;
+}
+
+/* Sección de Beneficios (Cards) */
+.beneficios {
+    padding: 90px 10%;
+    text-align: center;
+}
+
+.beneficios h2 {
+    font-size: 48px;
+    color: #006b8f;
+    margin-bottom: 60px;
+    font-weight: 700;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 320px;
+    background: white;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.12);
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-12px) scale(1.02);
+}
+
+.card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.card h3 {
+    padding: 25px;
+    font-size: 24px;
+    color: #00796b;
+    font-weight: 600;
+}
+.card {
+    width: 320px;
+    background: white;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.12);
+    transition: 0.4s;
+    
+    /* ESTO HACE QUE LA TARJETA PERMITA EMPUJAR EL BOTÓN AL FONDO */
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-12px) scale(1.02);
+}
+
+.card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.card h3 {
+    padding: 25px 25px 10px 25px;
+    font-size: 24px;
+    color: #00796b;
+    font-weight: 600;
+    /* ESTO HACE QUE EL TÍTULO OCUPE EL ESPACIO QUE FALTA */
+    flex-grow: 1; 
+}
+/* EL BOTÓN DE FUENTES EN VERSIÓN SUTIL (SOLO TEXTO CON LÍNEA) */
+.boton-fuente {
+  color: #00796b !important;       /* El mismo color verde/azul de tus títulos h3 */
+  font-style: italic;              /* Mantiene la letra en cursiva */
+  text-decoration: none;           /* Quitamos el subrayado por defecto para controlar la línea */
+  
+  /* --- CAMBIOS PARA DESTACAR MENOS --- */
+  font-size: 13px;                 /* Letra pequeña y discreta */
+  background-color: transparent;   /* Quitamos por completo el fondo azul */
+  padding: 0;                      /* Quitamos el relleno para que actúe como texto normal */
+  border-bottom: 1px solid #00796b; /* Creamos una línea sutil abajo del mismo color */
+  
+  /* Alineación */
+  margin: auto auto 20px auto;     /* Lo mantiene alineado al fondo y centrado */
+  display: inline-block;
+  transition: 0.3s;
+}
+
+/* Efecto sutil al pasar el mouse */
+.boton-fuente:hover {
+  color: #004d40 !important;       /* Se oscurece un poquito la letra */
+  border-color: #004d40;           /* Se oscurece un poquito la línea */
+  transform: translateY(-1px);     /* Se eleva apenas un milímetro, muy elegante */
+}
+/* ==========================================================================
+   13. NUEVA SECCIÓN: PLAYLIST DE ROCK EN EL INDEX (ADAPTADA A TU IFRAME)
+   ========================================================================== */
+.seccion-playlist {
+    background-color: #ffffff; /* Fondo blanco para cortar con el fondo gris/celeste */
+    padding: 60px 10%;
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor-playlist-index {
+    max-width: 900px;
+    width: 100%;
+    background: #eef7f8; /* El celeste claro de tu body */
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center; /* Centra verticalmente el texto con el reproductor alto */
+    gap: 40px;
+}
+
+.texto-playlist {
+    flex: 1;
+    text-align: left;
+}
+
+.texto-playlist h2 {
+    font-size: 32px;
+    color: #006b8f; /* El azul de tus títulos principales */
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.texto-playlist p {
+    color: #526e7b;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.reproductor-spotify {
+    flex: 1;
+    width: 100%;
+    max-width: 400px; /* Evita que el reproductor se estire a lo ancho de forma desproporcionada */
+}
+
+.reproductor-spotify iframe {
+    box-shadow: 0px 6px 20px rgba(0,0,0,0.1);
+}
+
+/* RESPONSIVE: Celulares */
+@media(max-width: 768px) {
+    .contenedor-playlist-index {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+        padding: 25px;
+    }
+    .texto-playlist {
+        text-align: center;
+    }
+    .texto-playlist h2 {
+        font-size: 26px;
+    }
+}
+/* Sección de Contacto */
+.contacto {
+    background: linear-gradient(135deg, #006b8f, #009966);
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.contacto h2 {
+    font-size: 42px;
+    margin-bottom: 25px;
+}
+
+.contacto p {
+    font-size: 20px;
+    margin: 12px 0;
+    font-weight: 300;
+}
+
+/* Botones Comunes de la Portada/Contacto */
+.boton {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 16px 38px;
+    border-radius: 50px;
+    background-color: white;
+    color: #00796b;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.boton:hover {
+    background-color: #dff7ef;
+    transform: scale(1.05);
+}
+footer {
+    background: linear-gradient(to right, #0f4c75, #3282b8);
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 50px;
+}
+
+#footer {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+}
+/* ==========================================================================
+   4. PÁGINAS INTERNAS (Estructura para Horarios y Tarifas)
+   ========================================================================== */
+/* Envolvemos el contenido de las páginas de Horarios y Tarifas en esta clase en el HTML */
+.wrapper-horarios, .wrapper-tarifas {
+    max-width: 1200px;
+    width: 100%;
+    margin: 140px auto 60px auto; /* El margen de 140px evita que el nav tape el título */
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Bloques de información tipo tarjeta blanca */
+.seccion-info, .header-seccion, .contenedor-tabla, .info-box, .seccion-turismo {
+    background-color: white;
+    width: 100%;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(8, 55, 75, 0.04);
+}
+
+/* Ajustes de textos informativos internos */
+.seccion-info, .header-seccion { border-left: 6px solid #006b8f; }
+.seccion-info h1, .header-seccion h1 { font-size: 34px; color: #08374b; font-weight: 800; margin-bottom: 10px; }
+.subtitulo { font-size: 18px; color: #006b8f; font-weight: 500; margin-bottom: 10px; }
+.descripcion, .aclaracion { color: #526e7b; font-size: 16px; }
+
+/* Caja de alerta nocturna */
+.alerta-nocturna {
+    background-color: #e6f4f8;
+    border: 1px solid #bce1ec;
+    border-radius: 12px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    max-width: max-content;
+}
+.alerta-nocturna .icono { font-size: 20px; background-color: #79c3e2; padding: 6px; border-radius: 50%; display: inline-flex; }
+.alerta-nocturna p { margin: 0; color: #163a4d; font-size: 15px; }
+.alerta-nocturna strong { color: #006b8f; }
+
+/* ==========================================================================
+   5. COMPONENTE: TABLAS CON MAPA DE VÍAS (Página Horarios)
+   ========================================================================== */
+.contenedor-tabla { overflow-x: auto; }
+.contenedor-tabla h2 { color: #163a4d; font-size: 22px; margin-bottom: 5px; }
+.contenedor-tabla h3 { color: #666; font-size: 16px; font-weight: 400; margin-bottom: 30px; }
+
+.tabla-tren { border-collapse: collapse; width: max-content; }
+.tabla-tren th:first-child, .tabla-tren td:first-child {
+    font-weight: bold;
+    color: #006b8f;
+    padding-right: 25px;
+    text-align: left;
+    font-size: 14px;
+    position: sticky;
+    left: 0;
+    background: white;
+    z-index: 5;
+}
+
+.estacion-header { height: 140px; vertical-align: bottom; padding-bottom: 15px; }
+.estacion-header span {
+    display: block; width: 35px; transform: rotate(-45deg);
+    transform-origin: bottom left; white-space: nowrap;
+    font-size: 13px; font-weight: 600; color: #444;
+}
+
+.fila-mapa td { position: relative; padding: 15px 0; }
+.nodo-via { display: flex; align-items: center; justify-content: center; position: relative; width: 80px; height: 20px; }
+.nodo-via::before {
+    content: ''; position: absolute; left: 0; right: 0; top: 50%;
+    transform: translateY(-50%); height: 6px; background-color: #79c3e2; z-index: 1;
+}
+.circulo { width: 14px; height: 14px; background-color: white; border: 4px solid #79c3e2; border-radius: 50%; z-index: 2; }
+
+.fila-horario td { text-align: center; padding: 10px 0; font-size: 14px; color: #444; border-bottom: 1px solid #f5f5f5; }
+.fila-horario:hover td { background-color: #f2fafd; }
+
+/* ==========================================================================
+   6. COMPONENTE: TARJETAS DE PRECIOS Y BLOQUES (Página Tarifas)
+   ========================================================================== */
+.tarjetas-precios { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 15px; }
+.card-precio {
+    background: white; padding: 20px; border-radius: 12px; text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); border: 1px solid #dcecf0;
+    transition: 0.3s ease; display: flex; flex-direction: column; gap: 5px;
+}
+.card-precio:hover { transform: translateY(-4px); border-color: #79c3e2; box-shadow: 0 6px 20px rgba(121, 195, 226, 0.15); }
+.card-precio span { font-size: 13px; color: #526e7b; font-weight: 500; text-transform: uppercase; }
+.card-precio strong { font-size: 24px; color: #08374b; font-weight: 700; }
+
+.bloque-compra { background: linear-gradient(135deg, #006b8f, #004d66); color: white; padding: 35px; border-radius: 16px; }
+.bloque-compra h3 { font-size: 22px; margin-bottom: 10px; }
+.bloque-compra p { font-size: 15px; line-height: 1.6; margin-bottom: 20px; opacity: 0.9; }
+.boton-link {
+    display: inline-block; background: #7fffd4; color: #08374b; text-decoration: none;
+    padding: 12px 28px; border-radius: 50px; font-weight: 700; font-size: 15px; transition: 0.3s;
+}
+.boton-link:hover { background: white; transform: translateY(-2px); }
+
+.grid-info { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
+.item-horario { margin-bottom: 15px; }
+.item-horario strong { color: #006b8f; font-size: 15px; }
+.item-horario p { font-size: 14px; color: #526e7b; margin-top: 2px; }
+
+.info-box ul { list-style: none; }
+.info-box li { font-size: 14px; margin-bottom: 12px; position: relative; padding-left: 20px; }
+.info-box li::before { content: "✓"; position: absolute; left: 0; color: #009966; font-weight: bold; }
+.info-box li span { font-size: 13px; color: #78909c; display: block; }
+.info-box.gratis { border-top: 4px solid #009966; }
+
+.span-full { grid-column: span 2; }
+.nota-equipaje { margin-top: 15px; background: #fff9e6; border: 1px solid #ffe0b2; padding: 12px 15px; border-radius: 8px; font-size: 13px; color: #b78103; }
+
+/* ==========================================================================
+   7. SECCIÓN DE TURISMO (Genially iframe)
+   ========================================================================== */
+.seccion-turismo { border-left: 6px solid #009966; }
+.seccion-turismo h2 { color: #08374b; font-size: 26px; font-weight: 700; margin-bottom: 8px; }
+.descripcion-turismo { color: #526e7b; font-size: 16px; margin-bottom: 30px; }
+.contenedor-genially { width: 100%; max-width: 1000px; margin: 0 auto; border-radius: 12px; overflow: hidden; border: 1px solid #dcecf0; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); }
+.proporcion-video { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+.proporcion-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+/* ==========================================================================
+   8. RESPONSIVE / ADAPTACIÓN MÓVIL
+   ========================================================================== */
+@media(max-width: 768px) {
+    nav { width: 90%; padding: 12px 15px; }
+    nav ul { gap: 12px; }
+    nav a { font-size: 13px; }
+
+    .contenido-hero h1 { font-size: 52px; }
+    .beneficios h2 { font-size: 36px; }
+
+    .wrapper-horarios, .wrapper-tarifas { margin-top: 110px; gap: 20px; }
+    .grid-info { grid-template-columns: 1fr; }
+    .span-full { grid-column: span 1; }
+    .seccion-turismo { padding: 25px 20px; }
+}
+/* ==========================================================================
+   9. PÁGINA: EL TREN (Estilos Ajustados para Mapa Único)
+   ========================================================================== */
+
+.wrapper-tren {
+    max-width: 1200px;
+    width: 100%;
+    margin: 140px auto 60px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+/* Contenedor del mapa a pantalla completa */
+.seccion-mapa-unico {
+    width: 100%;
+}
+
+.contenedor-iframe-full {
+    background: white;
+    padding: 15px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.03);
+    border: 1px solid #dcecf0;
+    height: 500px; /* Altura ideal y cómoda para navegar el mapa */
+    width: 100%;
+}
+
+.contenedor-iframe-full iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 10px;
+}
+
+/* Listado de Estaciones en columnas automáticas */
+.estaciones-container h2 {
+    color: #08374b;
+    font-size: 24px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #eef7f8;
+    padding-bottom: 8px;
+}
+
+.lista-estaciones {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+.lista-estaciones li {
+    background: white;
+    padding: 14px 18px;
+    border-radius: 12px;
+    font-size: 15px;
+    color: #163a4d;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid #dcecf0;
+    transition: 0.2s ease;
+}
+
+.lista-estaciones li:hover {
+    border-color: #79c3e2;
+    background-color: #f4fbfc;
+    transform: translateY(-2px);
+}
+
+.lista-estaciones li span {
+    background: #e6f4f8;
+    color: #006b8f;
+    font-weight: 700;
+    font-size: 13px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Grid de consejos con tarjetas */
+.consejos-tren {
+    background: white;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(8, 55, 75, 0.04);
+}
+
+.consejos-tren h3 {
+    font-size: 22px;
+    color: #08374b;
+    margin-bottom: 25px;
+}
+
+.grid-consejos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.card-consejo {
+    background: #f8fdfd;
+    border: 1px solid #e1f0f3;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.icono-c {
+    font-size: 22px;
+    background: white;
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    display: inline-flex;
+}
+
+.card-consejo p {
+    margin: 0;
+    font-size: 14px;
+    color: #526e7b;
+    line-height: 1.6;
+}
+
+.card-consejo strong {
+    color: #006b8f;
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px) {
+    .contenedor-iframe-full {
+        height: 350px; /* Se acorta un poco en celulares para facilitar el scroll general */
+    }
+    .grid-consejos {
+        grid-template-columns: 1fr;
+    }
+}
+/* ==========================================================================
+   10. PÁGINA: CONTACTO Y CANALES DE ATENCIÓN (Estilos Específicos)
+   ========================================================================== */
+
+.wrapper-contacto {
+    max-width: 1200px;
+    width: 100%;
+    margin: 140px auto 60px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+/* Sección de canales de atención rápida (0800 y Whatsapp) */
+.atencion-pasajero {
+    background: white;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(8, 55, 75, 0.04);
+}
+
+.atencion-pasajero h2, .oficinas-estaciones h2 {
+    color: #08374b;
+    font-size: 24px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #eef7f8;
+    padding-bottom: 8px;
+    font-weight: 700;
+}
+
+.grid-canales {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.card-contacto-canal {
+    background: #f8fdfd;
+    border: 1px solid #e1f0f3;
+    padding: 30px;
+    border-radius: 14px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    transition: 0.3s ease;
+}
+
+.card-contacto-canal:hover {
+    transform: translateY(-3px);
+    border-color: #79c3e2;
+}
+
+/* Variación sutil para destacar WhatsApp */
+.card-contacto-canal.whatsapp-style:hover {
+    border-color: #25d366; /* Borde verde característico de WhatsApp en hover */
+    background: #fafdfa;
+}
+
+.icono-canal {
+    font-size: 26px;
+    background: white;
+    padding: 12px;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    display: inline-flex;
+}
+
+.info-canal h3 {
+    font-size: 18px;
+    color: #08374b;
+    margin-bottom: 8px;
+}
+
+.dato-principal {
+    font-size: 24px;
+    font-weight: 700;
+    color: #006b8f;
+    margin-bottom: 8px;
+}
+
+.dato-principal small {
+    font-size: 14px;
+    color: #526e7b;
+    font-weight: 400;
+}
+
+.horario-canal {
+    font-size: 14px;
+    color: #526e7b;
+    line-height: 1.5;
+}
+
+/* Tarjetas de Oficinas Físicas */
+.grid-estaciones {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Columnas perfectas para tus 3 estaciones */
+    gap: 25px;
+}
+
+.estacion-card {
+    background: white;
+    border: 1px solid #dcecf0;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    position: relative;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.estacion-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(8, 55, 75, 0.08);
+    border-color: #79c3e2;
+}
+
+.badge-tren {
+    background: #eef7f8;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.estacion-card h3 {
+    font-size: 19px;
+    color: #08374b;
+    font-weight: 600;
+}
+
+.direccion {
+    font-size: 14px;
+    color: #163a4d;
+    font-weight: 500;
+    line-height: 1.4;
+}
+
+.telefono-estacion {
+    font-size: 14px;
+    color: #526e7b;
+    margin-top: 5px;
+}
+
+.telefono-estacion strong {
+    color: #006b8f;
+}
+
+.telefono-estacion em {
+    font-size: 13px;
+    color: #78909c;
+}
+
+/* RESPONSIVE: Adaptabilidad para Tablets y Smartphones */
+@media(max-width: 992px) {
+    .grid-estaciones {
+        grid-template-columns: repeat(2, 1fr); /* Pasa a dos columnas en pantallas medianas */
+    }
+}
+
+@media(max-width: 768px) {
+    .grid-canales, .grid-estaciones {
+        grid-template-columns: 1fr; /* Una sola columna vertical en celulares */
+    }
+    
+    .card-contacto-canal {
+        padding: 20px;
+    }
+
+    .dato-principal {
+        font-size: 20px;
+    }
+}
+/* ==========================================================================
+   11. BOTONES DE GOOGLE MAPS EN TARJETA DE CONTACTO
+   ========================================================================== */
+.boton-mapa {
+    display: inline-block;
+    text-decoration: none;
+    color: #006b8f; /* El azul brillante institucional */
+    background-color: #f0f9fc; /* Fondo celeste muy suave */
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 600;
+    line-height: 1.4;
+    border: 1px solid #d0e7ee;
+    transition: all 0.3s ease;
+    margin: 5px 0;
+}
+
+.boton-mapa:hover {
+    background-color: #006b8f;
+    color: white; /* Invierte colores al pasar el cursor */
+    border-color: #006b8f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 107, 143, 0.15);
+}
+/* ==========================================================================
+   12. PÁGINA: AUTORA / PRESENTACIÓN (Estilos Específicos)
+   ========================================================================== */
+
+.wrapper-autora {
+    max-width: 900px; /* Un ancho más cerrado para que la tarjeta de perfil quede centrada y fina */
+    width: 100%;
+    margin: 150px auto 60px auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Tarjeta principal estilo "Split" (Dividida en dos) */
+.perfil-card {
+    background: white;
+    width: 100%;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(8, 55, 75, 0.06);
+    display: flex;
+    overflow: hidden; /* Corta las esquinas del fondo de la izquierda */
+    border: 1px solid #dcecf0;
+}
+
+/* Panel Izquierdo (Fondo Azul de perfil) */
+.perfil-foto-area {
+    background: linear-gradient(145deg, #08374b, #005674);
+    color: white;
+    padding: 40px;
+    width: 35%; /* Ocupa el 35% de la tarjeta */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 15px;
+}
+/* ESTILO PARA LA FOTO CIRCULAR */
+.foto-autora {
+    width: 130px;               /* Ancho de la foto */
+    height: 130px;              /* Alto igual al ancho para que sea un cuadrado perfecto */
+    border-radius: 50%;         /* Este es el truco para que sea un CÍRCULO */
+    object-fit: cover;          /* Hace que la foto se recorte bien sin estirarse */
+    border: 3px solid #7fffd4;  /* Un borde turquesa para que resalte */
+    margin-bottom: 15px;        /* Espacio entre la foto y tu nombre */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* Sombra para darle profundidad */
+}
+
+/* Ajuste del contenedor para que todo esté centrado */
+.perfil-foto-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.rol {
+    font-size: 13px;
+    text-transform: uppercase;
+    background: rgba(127, 255, 212, 0.2);
+    color: #7fffd4;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Panel Derecho (Textos y Presentación) */
+.perfil-info-area {
+    padding: 50px;
+    width: 65%; /* Ocupa el resto de la tarjeta */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.perfil-info-area h1 {
+    color: #08374b;
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.linea-decorativa {
+    width: 50px;
+    height: 4px;
+    background: #006b8f;
+    border-radius: 2px;
+    margin-bottom: 25px;
+}
+
+.perfil-info-area p {
+    color: #526e7b;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+.perfil-info-area strong {
+    color: #006b8f;
+    font-weight: 600;
+}
+
+/* Bloque inferior de saludo final */
+.despedida {
+    margin-top: 15px;
+    padding-top: 20px;
+    border-top: 1px dashed #e1f0f3;
+}
+
+.gracias {
+    font-size: 16px !important;
+    font-weight: 700;
+    color: #08374b !important;
+    margin: 0;
+}
+
+/* RESPONSIVE: En pantallas de celular, la tarjeta pasa de horizontal a vertical */
+@media(max-width: 768px) {
+    .perfil-card {
+        flex-direction: column;
+    }
+
+    .perfil-foto-area {
+        width: 100%;
+        padding: 40px 20px;
+    }
+
+    .perfil-info-area {
+        width: 100%;
+        padding: 35px 25px;
+    }
+    
+    .perfil-info-area h1 {
+        font-size: 26px;
+    }
+}
